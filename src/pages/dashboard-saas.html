@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashio - SaaS Dashboard">
+  <title>SaaS | Dashio</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+</head>
+<body>
+
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar bg-body-tertiary border-end">
+      <div class="d-flex flex-column h-100">
+        <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
+          <a href="../" class="d-flex align-items-center text-decoration-none">
+            <span class="fs-5 fw-semibold text-primary">Dashio</span>
+          </a>
+          <button type="button" class="btn btn-link text-body d-lg-none p-0" data-dismiss="sidebar" aria-label="Close sidebar">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <nav class="sidebar-nav flex-grow-1 p-3">
+          <ul class="nav flex-column gap-1">
+            <li class="nav-item">
+              <a class="nav-link" href="../">
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+
+            <li class="nav-header">Dashboards</li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard-analytics.html">
+                <i class="bi bi-graph-up"></i>
+                <span>Analytics</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard-ecommerce.html">
+                <i class="bi bi-cart3"></i>
+                <span>E-commerce</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard-crm.html">
+                <i class="bi bi-people"></i>
+                <span>CRM</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard-projects.html">
+                <i class="bi bi-clipboard-data"></i>
+                <span>Projects</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./dashboard-saas.html">
+                <i class="bi bi-cloud"></i>
+                <span>SaaS</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard-finance.html">
+                <i class="bi bi-wallet2"></i>
+                <span>Finance</span>
+              </a>
+            </li>
+
+            <li class="nav-header">Pages</li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./tables.html">
+                <i class="bi bi-table"></i>
+                <span>Tables</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./forms.html">
+                <i class="bi bi-ui-checks"></i>
+                <span>Forms</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./charts.html">
+                <i class="bi bi-bar-chart-line"></i>
+                <span>Charts</span>
+              </a>
+            </li>
+
+            <li class="nav-header">Account</li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./login.html">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Login</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="p-3 border-top">
+          <div class="d-flex align-items-center gap-3">
+            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <div class="flex-grow-1 min-w-0">
+              <div class="fw-medium text-truncate">Admin User</div>
+              <div class="small text-body-secondary text-truncate">admin@dashio.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header class="sticky-top bg-body border-bottom">
+        <div class="d-flex align-items-center justify-content-between px-3 px-lg-4 py-2">
+          <button type="button" class="btn btn-link text-body d-lg-none p-0 me-3" data-toggle="sidebar" aria-label="Toggle sidebar">
+            <i class="bi bi-list fs-4"></i>
+          </button>
+          <div class="flex-grow-1 me-3" style="max-width: 400px;">
+            <div class="input-group">
+              <span class="input-group-text bg-transparent border-end-0"><i class="bi bi-search"></i></span>
+              <input type="search" class="form-control border-start-0" placeholder="Search...">
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <div class="dropdown color-switcher-dropdown">
+              <button type="button" class="btn btn-link text-body p-2" data-bs-toggle="dropdown" aria-expanded="false" title="Change color">
+                <i class="bi bi-palette"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end p-3" style="min-width: 200px;">
+                <div class="small fw-medium mb-2">Primary Color</div>
+                <div class="d-flex flex-wrap gap-2" id="colorSwitcher">
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch active" data-color="#4f46e5" style="width: 28px; height: 28px; background: #4f46e5;" title="Indigo"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#0d9488" style="width: 28px; height: 28px; background: #0d9488;" title="Teal"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#e11d48" style="width: 28px; height: 28px; background: #e11d48;" title="Rose"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#059669" style="width: 28px; height: 28px; background: #059669;" title="Emerald"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#ea580c" style="width: 28px; height: 28px; background: #ea580c;" title="Orange"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#7c3aed" style="width: 28px; height: 28px; background: #7c3aed;" title="Violet"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#2563eb" style="width: 28px; height: 28px; background: #2563eb;" title="Blue"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#475569" style="width: 28px; height: 28px; background: #475569;" title="Slate"></button>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-link text-body p-2" data-toggle="theme">
+              <i class="bi bi-moon-fill"></i>
+            </button>
+            <div class="dropdown">
+              <button type="button" class="btn btn-link p-0" data-bs-toggle="dropdown">
+                <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                  <i class="bi bi-person-fill"></i>
+                </div>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="./profile.html"><i class="bi bi-person me-2"></i>Profile</a></li>
+                <li><a class="dropdown-item" href="./settings.html"><i class="bi bi-gear me-2"></i>Settings</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="./login.html"><i class="bi bi-box-arrow-right me-2"></i>Sign out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="p-3 p-lg-4">
+        <!-- Page Header -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <h1 class="h3 mb-1">SaaS Dashboard</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="../">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">SaaS</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="d-flex gap-2">
+            <select class="form-select form-select-sm" style="width: auto;">
+              <option>This Month</option>
+              <option>Last Month</option>
+              <option>This Quarter</option>
+              <option>This Year</option>
+            </select>
+            <button type="button" class="btn btn-sm btn-primary">
+              <i class="bi bi-download me-1"></i> Export
+            </button>
+          </div>
+        </div>
+
+        <!-- MRR Stats -->
+        <div class="row g-3 mb-4">
+          <div class="col-sm-6 col-xl-3">
+            <div class="card h-100 border-start border-4 border-primary">
+              <div class="card-body">
+                <div class="d-flex align-items-start justify-content-between">
+                  <div>
+                    <div class="text-body-secondary small mb-1">Monthly Recurring Revenue</div>
+                    <div class="h4 mb-0">$84,254</div>
+                    <div class="small text-success mt-1">
+                      <i class="bi bi-arrow-up"></i> 12.5% vs last month
+                    </div>
+                  </div>
+                  <div class="rounded bg-primary bg-opacity-10 p-2">
+                    <i class="bi bi-currency-dollar fs-4 text-primary"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="card h-100 border-start border-4 border-success">
+              <div class="card-body">
+                <div class="d-flex align-items-start justify-content-between">
+                  <div>
+                    <div class="text-body-secondary small mb-1">Annual Recurring Revenue</div>
+                    <div class="h4 mb-0">$1.01M</div>
+                    <div class="small text-success mt-1">
+                      <i class="bi bi-arrow-up"></i> 18.3% YoY
+                    </div>
+                  </div>
+                  <div class="rounded bg-success bg-opacity-10 p-2">
+                    <i class="bi bi-graph-up-arrow fs-4 text-success"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="card h-100 border-start border-4 border-warning">
+              <div class="card-body">
+                <div class="d-flex align-items-start justify-content-between">
+                  <div>
+                    <div class="text-body-secondary small mb-1">Churn Rate</div>
+                    <div class="h4 mb-0">2.4%</div>
+                    <div class="small text-success mt-1">
+                      <i class="bi bi-arrow-down"></i> 0.3% improvement
+                    </div>
+                  </div>
+                  <div class="rounded bg-warning bg-opacity-10 p-2">
+                    <i class="bi bi-person-dash fs-4 text-warning"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="card h-100 border-start border-4 border-info">
+              <div class="card-body">
+                <div class="d-flex align-items-start justify-content-between">
+                  <div>
+                    <div class="text-body-secondary small mb-1">Active Users</div>
+                    <div class="h4 mb-0">12,847</div>
+                    <div class="small text-success mt-1">
+                      <i class="bi bi-arrow-up"></i> 856 new this month
+                    </div>
+                  </div>
+                  <div class="rounded bg-info bg-opacity-10 p-2">
+                    <i class="bi bi-people fs-4 text-info"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MRR Chart & Subscription Breakdown -->
+        <div class="row g-3 mb-4">
+          <div class="col-lg-8">
+            <div class="card h-100">
+              <div class="card-header bg-transparent d-flex align-items-center justify-content-between">
+                <h5 class="card-title mb-0">Revenue Growth</h5>
+                <div class="d-flex gap-3 small">
+                  <span class="d-flex align-items-center gap-1"><span class="rounded-circle bg-primary" style="width: 8px; height: 8px;"></span> MRR</span>
+                  <span class="d-flex align-items-center gap-1"><span class="rounded-circle bg-success" style="width: 8px; height: 8px;"></span> New Revenue</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div id="saasRevenueChart" style="height: 300px;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card h-100">
+              <div class="card-header bg-transparent">
+                <h5 class="card-title mb-0">Subscription Plans</h5>
+              </div>
+              <div class="card-body">
+                <div id="saasPlansChart" style="height: 180px;"></div>
+                <div class="mt-3">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="rounded-circle bg-primary" style="width: 10px; height: 10px;"></span>
+                      <span class="small">Enterprise</span>
+                    </div>
+                    <div class="text-end">
+                      <span class="small fw-medium">$45,200</span>
+                      <span class="small text-body-secondary ms-1">(54%)</span>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="rounded-circle bg-success" style="width: 10px; height: 10px;"></span>
+                      <span class="small">Professional</span>
+                    </div>
+                    <div class="text-end">
+                      <span class="small fw-medium">$28,400</span>
+                      <span class="small text-body-secondary ms-1">(34%)</span>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="rounded-circle bg-warning" style="width: 10px; height: 10px;"></span>
+                      <span class="small">Starter</span>
+                    </div>
+                    <div class="text-end">
+                      <span class="small fw-medium">$10,654</span>
+                      <span class="small text-body-secondary ms-1">(12%)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="row g-3 mb-4">
+          <!-- Trial Conversions -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <div class="display-6 fw-bold text-primary mb-2">28.5%</div>
+                <div class="fw-medium mb-1">Trial Conversion</div>
+                <small class="text-body-secondary">142 of 498 trials converted</small>
+                <div class="mt-3">
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar" style="width: 28.5%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Customer Lifetime Value -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <div class="display-6 fw-bold text-success mb-2">$2,847</div>
+                <div class="fw-medium mb-1">Avg. LTV</div>
+                <small class="text-body-secondary">Customer lifetime value</small>
+                <div class="mt-3 small text-success">
+                  <i class="bi bi-arrow-up"></i> 12% vs last quarter
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Net Revenue Retention -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <div class="display-6 fw-bold text-info mb-2">118%</div>
+                <div class="fw-medium mb-1">Net Revenue Retention</div>
+                <small class="text-body-secondary">Expansion > Churn</small>
+                <div class="mt-3 small text-success">
+                  <i class="bi bi-arrow-up"></i> Healthy growth
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAC Payback -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <div class="display-6 fw-bold text-warning mb-2">8.2</div>
+                <div class="fw-medium mb-1">CAC Payback (months)</div>
+                <small class="text-body-secondary">Cost to acquire customer</small>
+                <div class="mt-3 small text-success">
+                  <i class="bi bi-arrow-down"></i> 1.5mo improvement
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- User Activity & Recent Signups -->
+        <div class="row g-3 mb-4">
+          <!-- Feature Usage -->
+          <div class="col-lg-6">
+            <div class="card h-100">
+              <div class="card-header bg-transparent">
+                <h5 class="card-title mb-0">Feature Usage</h5>
+              </div>
+              <div class="card-body">
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span>Dashboard</span>
+                    <span class="fw-medium">94%</span>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar" style="width: 94%;"></div>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span>Reports & Analytics</span>
+                    <span class="fw-medium">78%</span>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-success" style="width: 78%;"></div>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span>Team Collaboration</span>
+                    <span class="fw-medium">65%</span>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-info" style="width: 65%;"></div>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span>API Integration</span>
+                    <span class="fw-medium">45%</span>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-warning" style="width: 45%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span>Custom Workflows</span>
+                    <span class="fw-medium">32%</span>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-secondary" style="width: 32%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Signups -->
+          <div class="col-lg-6">
+            <div class="card h-100">
+              <div class="card-header bg-transparent d-flex align-items-center justify-content-between">
+                <h5 class="card-title mb-0">Recent Signups</h5>
+                <a href="#" class="small text-decoration-none">View all</a>
+              </div>
+              <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex align-items-center gap-3 py-3">
+                    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 0.8rem;">TC</div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="fw-medium">TechCorp Solutions</div>
+                      <small class="text-body-secondary">Enterprise &bull; 5 minutes ago</small>
+                    </div>
+                    <span class="badge bg-success-subtle text-success">$599/mo</span>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center gap-3 py-3">
+                    <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 0.8rem;">JS</div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="fw-medium">John Smith</div>
+                      <small class="text-body-secondary">Starter Trial &bull; 23 minutes ago</small>
+                    </div>
+                    <span class="badge bg-warning-subtle text-warning">Trial</span>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center gap-3 py-3">
+                    <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 0.8rem;">AI</div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="fw-medium">Acme Industries</div>
+                      <small class="text-body-secondary">Professional &bull; 1 hour ago</small>
+                    </div>
+                    <span class="badge bg-primary-subtle text-primary">$199/mo</span>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center gap-3 py-3">
+                    <div class="rounded-circle bg-warning text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 0.8rem;">SW</div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="fw-medium">StartupWorks</div>
+                      <small class="text-body-secondary">Starter &bull; 2 hours ago</small>
+                    </div>
+                    <span class="badge bg-body-secondary text-body">$49/mo</span>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center gap-3 py-3">
+                    <div class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 0.8rem;">GC</div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="fw-medium">Global Consulting</div>
+                      <small class="text-body-secondary">Enterprise &bull; 3 hours ago</small>
+                    </div>
+                    <span class="badge bg-success-subtle text-success">$599/mo</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Customers Table -->
+        <div class="card">
+          <div class="card-header bg-transparent d-flex align-items-center justify-content-between">
+            <h5 class="card-title mb-0">Top Customers by MRR</h5>
+            <a href="#" class="btn btn-sm btn-outline-primary">View All</a>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Customer</th>
+                    <th>Plan</th>
+                    <th>MRR</th>
+                    <th>Users</th>
+                    <th>Status</th>
+                    <th>Since</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; font-size: 0.7rem;">GI</div>
+                        <div>
+                          <div class="fw-medium">Global Industries</div>
+                          <small class="text-body-secondary">global-ind.com</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge bg-primary-subtle text-primary">Enterprise</span></td>
+                    <td class="fw-medium">$2,499</td>
+                    <td>156</td>
+                    <td><span class="badge bg-success-subtle text-success">Active</span></td>
+                    <td>Jan 2023</td>
+                    <td class="text-end">
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-link text-body" data-bs-toggle="dropdown">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">View details</a></li>
+                          <li><a class="dropdown-item" href="#">Contact</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; font-size: 0.7rem;">TC</div>
+                        <div>
+                          <div class="fw-medium">TechCorp</div>
+                          <small class="text-body-secondary">techcorp.io</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge bg-primary-subtle text-primary">Enterprise</span></td>
+                    <td class="fw-medium">$1,899</td>
+                    <td>98</td>
+                    <td><span class="badge bg-success-subtle text-success">Active</span></td>
+                    <td>Mar 2023</td>
+                    <td class="text-end">
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-link text-body" data-bs-toggle="dropdown">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">View details</a></li>
+                          <li><a class="dropdown-item" href="#">Contact</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; font-size: 0.7rem;">MG</div>
+                        <div>
+                          <div class="fw-medium">MediaGroup</div>
+                          <small class="text-body-secondary">mediagroup.com</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge bg-success-subtle text-success">Professional</span></td>
+                    <td class="fw-medium">$599</td>
+                    <td>45</td>
+                    <td><span class="badge bg-success-subtle text-success">Active</span></td>
+                    <td>Jun 2023</td>
+                    <td class="text-end">
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-link text-body" data-bs-toggle="dropdown">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">View details</a></li>
+                          <li><a class="dropdown-item" href="#">Contact</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="rounded-circle bg-warning text-white d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; font-size: 0.7rem;">DH</div>
+                        <div>
+                          <div class="fw-medium">DesignHub</div>
+                          <small class="text-body-secondary">designhub.co</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge bg-success-subtle text-success">Professional</span></td>
+                    <td class="fw-medium">$399</td>
+                    <td>28</td>
+                    <td><span class="badge bg-warning-subtle text-warning">At Risk</span></td>
+                    <td>Aug 2023</td>
+                    <td class="text-end">
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-link text-body" data-bs-toggle="dropdown">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">View details</a></li>
+                          <li><a class="dropdown-item" href="#">Contact</a></li>
+                          <li><a class="dropdown-item text-warning" href="#">Retention action</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="py-3 px-3 px-lg-4 border-top mt-auto">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="text-body-secondary small">&copy; 2025 Dashio. All rights reserved.</div>
+          <ul class="nav gap-3">
+            <li class="nav-item"><a href="#" class="nav-link px-0 text-body-secondary small">Privacy</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-0 text-body-secondary small">Terms</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-0 text-body-secondary small">Support</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="../js/main.js"></script>
+</body>
+</html>

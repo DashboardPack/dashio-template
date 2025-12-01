@@ -22,6 +22,13 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(root, 'index.html'),
+        // Dashboard variants
+        dashboardAnalytics: resolve(root, 'pages/dashboard-analytics.html'),
+        dashboardEcommerce: resolve(root, 'pages/dashboard-ecommerce.html'),
+        dashboardCrm: resolve(root, 'pages/dashboard-crm.html'),
+        dashboardProjects: resolve(root, 'pages/dashboard-projects.html'),
+        dashboardSaas: resolve(root, 'pages/dashboard-saas.html'),
+        dashboardFinance: resolve(root, 'pages/dashboard-finance.html'),
         // Core pages
         tables: resolve(root, 'pages/tables.html'),
         forms: resolve(root, 'pages/forms.html'),

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashio - CRM Dashboard">
+  <title>CRM | Dashio</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+</head>
+<body>
+
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar bg-body-tertiary border-end">
+      <div class="d-flex flex-column h-100">
+        <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
+          <a href="../" class="d-flex align-items-center text-decoration-none">
+            <span class="fs-5 fw-semibold text-primary">Dashio</span>
+          </a>
+          <button type="button" class="btn btn-link text-body d-lg-none p-0" data-dismiss="sidebar" aria-label="Close sidebar">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <nav class="sidebar-nav flex-grow-1 p-3">
+          <ul class="nav flex-column gap-1">
+            <li class="nav-item">
+              <a class="nav-link" href="../">
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+
+            <li class="nav-header">Dashboards</li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard-analytics.html">
+                <i class="bi bi-graph-up"></i>
+                <span>Analytics</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard-ecommerce.html">
+                <i class="bi bi-cart3"></i>
+                <span>E-commerce</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./dashboard-crm.html">
+                <i class="bi bi-people"></i>
+                <span>CRM</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard-projects.html">
+                <i class="bi bi-clipboard-data"></i>
+                <span>Projects</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard-saas.html">
+                <i class="bi bi-cloud"></i>
+                <span>SaaS</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard-finance.html">
+                <i class="bi bi-wallet2"></i>
+                <span>Finance</span>
+              </a>
+            </li>
+
+            <li class="nav-header">Pages</li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./tables.html">
+                <i class="bi bi-table"></i>
+                <span>Tables</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./forms.html">
+                <i class="bi bi-ui-checks"></i>
+                <span>Forms</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./charts.html">
+                <i class="bi bi-bar-chart-line"></i>
+                <span>Charts</span>
+              </a>
+            </li>
+
+            <li class="nav-header">Account</li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./login.html">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Login</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="p-3 border-top">
+          <div class="d-flex align-items-center gap-3">
+            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <div class="flex-grow-1 min-w-0">
+              <div class="fw-medium text-truncate">Admin User</div>
+              <div class="small text-body-secondary text-truncate">admin@dashio.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header class="sticky-top bg-body border-bottom">
+        <div class="d-flex align-items-center justify-content-between px-3 px-lg-4 py-2">
+          <button type="button" class="btn btn-link text-body d-lg-none p-0 me-3" data-toggle="sidebar" aria-label="Toggle sidebar">
+            <i class="bi bi-list fs-4"></i>
+          </button>
+          <div class="flex-grow-1 me-3" style="max-width: 400px;">
+            <div class="input-group">
+              <span class="input-group-text bg-transparent border-end-0"><i class="bi bi-search"></i></span>
+              <input type="search" class="form-control border-start-0" placeholder="Search contacts, deals...">
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <div class="dropdown color-switcher-dropdown">
+              <button type="button" class="btn btn-link text-body p-2" data-bs-toggle="dropdown" aria-expanded="false" title="Change color">
+                <i class="bi bi-palette"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end p-3" style="min-width: 200px;">
+                <div class="small fw-medium mb-2">Primary Color</div>
+                <div class="d-flex flex-wrap gap-2" id="colorSwitcher">
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch active" data-color="#4f46e5" style="width: 28px; height: 28px; background: #4f46e5;" title="Indigo"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#0d9488" style="width: 28px; height: 28px; background: #0d9488;" title="Teal"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#e11d48" style="width: 28px; height: 28px; background: #e11d48;" title="Rose"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#059669" style="width: 28px; height: 28px; background: #059669;" title="Emerald"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#ea580c" style="width: 28px; height: 28px; background: #ea580c;" title="Orange"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#7c3aed" style="width: 28px; height: 28px; background: #7c3aed;" title="Violet"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#2563eb" style="width: 28px; height: 28px; background: #2563eb;" title="Blue"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#475569" style="width: 28px; height: 28px; background: #475569;" title="Slate"></button>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-link text-body p-2" data-toggle="theme">
+              <i class="bi bi-moon-fill"></i>
+            </button>
+            <div class="dropdown">
+              <button type="button" class="btn btn-link p-0" data-bs-toggle="dropdown">
+                <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                  <i class="bi bi-person-fill"></i>
+                </div>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="./profile.html"><i class="bi bi-person me-2"></i>Profile</a></li>
+                <li><a class="dropdown-item" href="./settings.html"><i class="bi bi-gear me-2"></i>Settings</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="./login.html"><i class="bi bi-box-arrow-right me-2"></i>Sign out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="p-3 p-lg-4">
+        <!-- Page Header -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <h1 class="h3 mb-1">CRM Dashboard</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="../">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">CRM</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-secondary">
+              <i class="bi bi-person-plus me-1"></i> Add Contact
+            </button>
+            <button type="button" class="btn btn-primary">
+              <i class="bi bi-plus-lg me-1"></i> New Deal
+            </button>
+          </div>
+        </div>
+
+        <!-- CRM Stats -->
+        <div class="row g-3 mb-4">
+          <div class="col-sm-6 col-xl-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <div class="d-flex align-items-start justify-content-between">
+                  <div>
+                    <div class="text-body-secondary small mb-1">Total Leads</div>
+                    <div class="h4 mb-0">2,847</div>
+                    <div class="small text-success mt-1">
+                      <i class="bi bi-arrow-up"></i> 156 this week
+                    </div>
+                  </div>
+                  <div class="rounded bg-primary bg-opacity-10 p-2">
+                    <i class="bi bi-person-lines-fill fs-4 text-primary"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <div class="d-flex align-items-start justify-content-between">
+                  <div>
+                    <div class="text-body-secondary small mb-1">Active Deals</div>
+                    <div class="h4 mb-0">$1.2M</div>
+                    <div class="small text-success mt-1">
+                      <i class="bi bi-arrow-up"></i> 24 deals
+                    </div>
+                  </div>
+                  <div class="rounded bg-success bg-opacity-10 p-2">
+                    <i class="bi bi-briefcase fs-4 text-success"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <div class="d-flex align-items-start justify-content-between">
+                  <div>
+                    <div class="text-body-secondary small mb-1">Win Rate</div>
+                    <div class="h4 mb-0">32.5%</div>
+                    <div class="small text-success mt-1">
+                      <i class="bi bi-arrow-up"></i> 4.2% vs last month
+                    </div>
+                  </div>
+                  <div class="rounded bg-warning bg-opacity-10 p-2">
+                    <i class="bi bi-trophy fs-4 text-warning"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <div class="d-flex align-items-start justify-content-between">
+                  <div>
+                    <div class="text-body-secondary small mb-1">Meetings Today</div>
+                    <div class="h4 mb-0">8</div>
+                    <div class="small text-body-secondary mt-1">
+                      Next: 2:30 PM
+                    </div>
+                  </div>
+                  <div class="rounded bg-info bg-opacity-10 p-2">
+                    <i class="bi bi-calendar-event fs-4 text-info"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sales Pipeline & Activities -->
+        <div class="row g-3 mb-4">
+          <!-- Sales Pipeline -->
+          <div class="col-lg-8">
+            <div class="card h-100">
+              <div class="card-header bg-transparent d-flex align-items-center justify-content-between">
+                <h5 class="card-title mb-0">Sales Pipeline</h5>
+                <div class="text-body-secondary small">Total Value: <strong class="text-body">$2.4M</strong></div>
+              </div>
+              <div class="card-body">
+                <!-- Pipeline Stages -->
+                <div class="row g-3 mb-4">
+                  <div class="col">
+                    <div class="text-center p-3 bg-body-secondary rounded">
+                      <div class="small text-body-secondary mb-1">Lead</div>
+                      <div class="h5 mb-1">45</div>
+                      <div class="small fw-medium">$450K</div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="text-center p-3 bg-body-secondary rounded">
+                      <div class="small text-body-secondary mb-1">Qualified</div>
+                      <div class="h5 mb-1">32</div>
+                      <div class="small fw-medium">$640K</div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="text-center p-3 bg-body-secondary rounded">
+                      <div class="small text-body-secondary mb-1">Proposal</div>
+                      <div class="h5 mb-1">18</div>
+                      <div class="small fw-medium">$720K</div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="text-center p-3 bg-body-secondary rounded">
+                      <div class="small text-body-secondary mb-1">Negotiation</div>
+                      <div class="h5 mb-1">12</div>
+                      <div class="small fw-medium">$480K</div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="text-center p-3 bg-success bg-opacity-10 rounded">
+                      <div class="small text-success mb-1">Won</div>
+                      <div class="h5 mb-1 text-success">8</div>
+                      <div class="small fw-medium text-success">$320K</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Conversion Funnel -->
+                <div class="mb-3">
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="small text-body-secondary" style="width: 100px;">Lead → Qual</span>
+                    <div class="flex-grow-1 mx-2">
+                      <div class="progress" style="height: 8px;">
+                        <div class="progress-bar" style="width: 71%;"></div>
+                      </div>
+                    </div>
+                    <span class="small fw-medium" style="width: 40px;">71%</span>
+                  </div>
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="small text-body-secondary" style="width: 100px;">Qual → Prop</span>
+                    <div class="flex-grow-1 mx-2">
+                      <div class="progress" style="height: 8px;">
+                        <div class="progress-bar bg-info" style="width: 56%;"></div>
+                      </div>
+                    </div>
+                    <span class="small fw-medium" style="width: 40px;">56%</span>
+                  </div>
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="small text-body-secondary" style="width: 100px;">Prop → Neg</span>
+                    <div class="flex-grow-1 mx-2">
+                      <div class="progress" style="height: 8px;">
+                        <div class="progress-bar bg-warning" style="width: 67%;"></div>
+                      </div>
+                    </div>
+                    <span class="small fw-medium" style="width: 40px;">67%</span>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <span class="small text-body-secondary" style="width: 100px;">Neg → Won</span>
+                    <div class="flex-grow-1 mx-2">
+                      <div class="progress" style="height: 8px;">
+                        <div class="progress-bar bg-success" style="width: 67%;"></div>
+                      </div>
+                    </div>
+                    <span class="small fw-medium" style="width: 40px;">67%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Today's Activities -->
+          <div class="col-lg-4">
+            <div class="card h-100">
+              <div class="card-header bg-transparent d-flex align-items-center justify-content-between">
+                <h5 class="card-title mb-0">Today's Activities</h5>
+                <span class="badge bg-primary">8</span>
+              </div>
+              <div class="card-body p-0" style="max-height: 400px; overflow-y: auto;">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex gap-3 py-3">
+                    <div class="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 40px; height: 40px;">
+                      <i class="bi bi-telephone text-primary"></i>
+                    </div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="d-flex justify-content-between">
+                        <div class="fw-medium">Call with TechCorp</div>
+                        <small class="text-body-secondary">9:00 AM</small>
+                      </div>
+                      <small class="text-body-secondary">Discovery call - Enterprise plan</small>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex gap-3 py-3">
+                    <div class="rounded-circle bg-success bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 40px; height: 40px;">
+                      <i class="bi bi-camera-video text-success"></i>
+                    </div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="d-flex justify-content-between">
+                        <div class="fw-medium">Demo: Acme Inc</div>
+                        <small class="text-body-secondary">11:00 AM</small>
+                      </div>
+                      <small class="text-body-secondary">Product demonstration</small>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex gap-3 py-3">
+                    <div class="rounded-circle bg-warning bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 40px; height: 40px;">
+                      <i class="bi bi-envelope text-warning"></i>
+                    </div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="d-flex justify-content-between">
+                        <div class="fw-medium">Follow-up: Global Ltd</div>
+                        <small class="text-body-secondary">1:00 PM</small>
+                      </div>
+                      <small class="text-body-secondary">Send proposal revision</small>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex gap-3 py-3">
+                    <div class="rounded-circle bg-info bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 40px; height: 40px;">
+                      <i class="bi bi-people text-info"></i>
+                    </div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="d-flex justify-content-between">
+                        <div class="fw-medium">Team Meeting</div>
+                        <small class="text-body-secondary">2:30 PM</small>
+                      </div>
+                      <small class="text-body-secondary">Weekly pipeline review</small>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex gap-3 py-3">
+                    <div class="rounded-circle bg-danger bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 40px; height: 40px;">
+                      <i class="bi bi-file-text text-danger"></i>
+                    </div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="d-flex justify-content-between">
+                        <div class="fw-medium">Contract Review</div>
+                        <small class="text-body-secondary">4:00 PM</small>
+                      </div>
+                      <small class="text-body-secondary">StartupXYZ - Final terms</small>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Performance & Recent Contacts -->
+        <div class="row g-3 mb-4">
+          <!-- Sales Team Performance -->
+          <div class="col-lg-6">
+            <div class="card h-100">
+              <div class="card-header bg-transparent">
+                <h5 class="card-title mb-0">Sales Team Performance</h5>
+              </div>
+              <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex align-items-center gap-3 py-3">
+                    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 0.8rem;">JM</div>
+                    <div class="flex-grow-1">
+                      <div class="d-flex justify-content-between align-items-center mb-1">
+                        <span class="fw-medium">Jessica Miller</span>
+                        <span class="badge bg-success-subtle text-success">$245K</span>
+                      </div>
+                      <div class="progress" style="height: 6px;">
+                        <div class="progress-bar bg-success" style="width: 92%;"></div>
+                      </div>
+                      <small class="text-body-secondary">92% of target</small>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center gap-3 py-3">
+                    <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 0.8rem;">RT</div>
+                    <div class="flex-grow-1">
+                      <div class="d-flex justify-content-between align-items-center mb-1">
+                        <span class="fw-medium">Robert Taylor</span>
+                        <span class="badge bg-success-subtle text-success">$198K</span>
+                      </div>
+                      <div class="progress" style="height: 6px;">
+                        <div class="progress-bar" style="width: 78%;"></div>
+                      </div>
+                      <small class="text-body-secondary">78% of target</small>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center gap-3 py-3">
+                    <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 0.8rem;">AL</div>
+                    <div class="flex-grow-1">
+                      <div class="d-flex justify-content-between align-items-center mb-1">
+                        <span class="fw-medium">Amanda Lee</span>
+                        <span class="badge bg-warning-subtle text-warning">$156K</span>
+                      </div>
+                      <div class="progress" style="height: 6px;">
+                        <div class="progress-bar bg-warning" style="width: 65%;"></div>
+                      </div>
+                      <small class="text-body-secondary">65% of target</small>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center gap-3 py-3">
+                    <div class="rounded-circle bg-warning text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 0.8rem;">DW</div>
+                    <div class="flex-grow-1">
+                      <div class="d-flex justify-content-between align-items-center mb-1">
+                        <span class="fw-medium">David Wilson</span>
+                        <span class="badge bg-danger-subtle text-danger">$124K</span>
+                      </div>
+                      <div class="progress" style="height: 6px;">
+                        <div class="progress-bar bg-danger" style="width: 52%;"></div>
+                      </div>
+                      <small class="text-body-secondary">52% of target</small>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Contacts -->
+          <div class="col-lg-6">
+            <div class="card h-100">
+              <div class="card-header bg-transparent d-flex align-items-center justify-content-between">
+                <h5 class="card-title mb-0">Recent Contacts</h5>
+                <a href="#" class="small text-decoration-none">View all</a>
+              </div>
+              <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex align-items-center gap-3 py-3">
+                    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 0.8rem;">SC</div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="fw-medium">Sarah Chen</div>
+                      <small class="text-body-secondary">VP of Engineering, TechCorp</small>
+                    </div>
+                    <div class="text-end">
+                      <span class="badge bg-success-subtle text-success">Hot</span>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center gap-3 py-3">
+                    <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 0.8rem;">MK</div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="fw-medium">Michael Kim</div>
+                      <small class="text-body-secondary">CEO, StartupXYZ</small>
+                    </div>
+                    <div class="text-end">
+                      <span class="badge bg-warning-subtle text-warning">Warm</span>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center gap-3 py-3">
+                    <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 0.8rem;">ER</div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="fw-medium">Emily Rodriguez</div>
+                      <small class="text-body-secondary">CTO, Acme Inc</small>
+                    </div>
+                    <div class="text-end">
+                      <span class="badge bg-success-subtle text-success">Hot</span>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center gap-3 py-3">
+                    <div class="rounded-circle bg-warning text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 0.8rem;">JB</div>
+                    <div class="flex-grow-1 min-w-0">
+                      <div class="fw-medium">James Brown</div>
+                      <small class="text-body-secondary">Director, Global Ltd</small>
+                    </div>
+                    <div class="text-end">
+                      <span class="badge bg-body-secondary text-body">Cold</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Deals -->
+        <div class="card">
+          <div class="card-header bg-transparent d-flex align-items-center justify-content-between">
+            <h5 class="card-title mb-0">Recent Deals</h5>
+            <a href="#" class="btn btn-sm btn-outline-primary">View All Deals</a>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Deal Name</th>
+                    <th>Company</th>
+                    <th>Value</th>
+                    <th>Stage</th>
+                    <th>Owner</th>
+                    <th>Close Date</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="fw-medium">Enterprise License</span></td>
+                    <td>TechCorp International</td>
+                    <td>$125,000</td>
+                    <td><span class="badge bg-info-subtle text-info">Proposal</span></td>
+                    <td>Jessica M.</td>
+                    <td>Dec 15, 2025</td>
+                    <td class="text-end">
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-link text-body" data-bs-toggle="dropdown">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">View details</a></li>
+                          <li><a class="dropdown-item" href="#">Edit deal</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="fw-medium">Annual Subscription</span></td>
+                    <td>Acme Inc</td>
+                    <td>$48,000</td>
+                    <td><span class="badge bg-warning-subtle text-warning">Negotiation</span></td>
+                    <td>Robert T.</td>
+                    <td>Dec 20, 2025</td>
+                    <td class="text-end">
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-link text-body" data-bs-toggle="dropdown">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">View details</a></li>
+                          <li><a class="dropdown-item" href="#">Edit deal</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="fw-medium">Platform Migration</span></td>
+                    <td>Global Ltd</td>
+                    <td>$85,000</td>
+                    <td><span class="badge bg-primary-subtle text-primary">Qualified</span></td>
+                    <td>Amanda L.</td>
+                    <td>Jan 10, 2026</td>
+                    <td class="text-end">
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-link text-body" data-bs-toggle="dropdown">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">View details</a></li>
+                          <li><a class="dropdown-item" href="#">Edit deal</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="fw-medium">Startup Package</span></td>
+                    <td>StartupXYZ</td>
+                    <td>$24,000</td>
+                    <td><span class="badge bg-success-subtle text-success">Won</span></td>
+                    <td>David W.</td>
+                    <td>Nov 28, 2025</td>
+                    <td class="text-end">
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-link text-body" data-bs-toggle="dropdown">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">View details</a></li>
+                          <li><a class="dropdown-item" href="#">Create invoice</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="py-3 px-3 px-lg-4 border-top mt-auto">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="text-body-secondary small">&copy; 2025 Dashio. All rights reserved.</div>
+          <ul class="nav gap-3">
+            <li class="nav-item"><a href="#" class="nav-link px-0 text-body-secondary small">Privacy</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-0 text-body-secondary small">Terms</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-0 text-body-secondary small">Support</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="../js/main.js"></script>
+</body>
+</html>

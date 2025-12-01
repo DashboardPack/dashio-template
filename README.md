@@ -1,6 +1,10 @@
 # Dashio - Bootstrap 5 Admin Dashboard Template
 
-A modern admin dashboard template built with Bootstrap 5.3 and Vite 7. Includes 15 ready-to-use pages, Chart.js integration, and a runtime color switcher.
+A modern admin dashboard template built with Bootstrap 5.3 and Vite 7. Includes 21 ready-to-use pages, Chart.js integration, and a runtime color switcher.
+
+[![Live Preview](dashio-preview.png)](https://dashboardpack.github.io/dashio-template/)
+
+**[Live Demo](https://dashboardpack.github.io/dashio-template/)**
 
 ## Quick Start
 
@@ -30,7 +34,8 @@ npm run preview  # Preview production build
 
 | Category | Pages |
 |----------|-------|
-| **Core** | Dashboard, Tables, Forms, Charts |
+| **Dashboards** | Main, Analytics, E-commerce, CRM, Projects, SaaS, Finance |
+| **Core** | Tables, Forms, Charts |
 | **Auth** | Login, Register, Forgot Password |
 | **Account** | Profile, Settings |
 | **Apps** | Notifications, Calendar, Kanban |
