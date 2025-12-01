@@ -1,10 +1,21 @@
 # Dashio - Bootstrap 5 Admin Dashboard Template
 
-A modern admin dashboard template built with Bootstrap 5.3 and Vite 7. Includes 21 ready-to-use pages, Chart.js integration, and a runtime color switcher.
+Dashio is a free, open-source admin dashboard template built with Bootstrap 5.3 and Vite 7. It provides a clean, modern foundation for building web applications, admin panels, SaaS products, and internal tools.
 
 [![Live Preview](dashio-preview.png)](https://dashboardpack.github.io/dashio-template/)
 
 **[Live Demo](https://dashboardpack.github.io/dashio-template/)**
+
+## Why Dashio?
+
+- **Modern Stack** - Built with Vite 7 for lightning-fast development and Bootstrap 5.3 for a solid CSS foundation
+- **7 Dashboard Variants** - Pre-built dashboards for Analytics, E-commerce, CRM, Projects, SaaS, and Finance use cases
+- **21 Ready-to-Use Pages** - Everything you need to get started: authentication, settings, tables, forms, charts, and more
+- **Dark/Light Mode** - Native Bootstrap dark mode with system preference detection
+- **Runtime Color Switcher** - Change the primary color on-the-fly without rebuilding
+- **Responsive Design** - Mobile-first approach that works on all screen sizes
+- **No jQuery** - Pure vanilla JavaScript with ES modules
+- **Well Organized** - Clean code structure that's easy to understand and extend
 
 ## Quick Start
 
@@ -25,8 +36,8 @@ npm run preview  # Preview production build
 ## Tech Stack
 
 - **Vite 7** - Build tool with hot module replacement
-- **Bootstrap 5.3.8** - CSS framework with native dark mode
-- **Bootstrap Icons 1.13** - Icon library
+- **Bootstrap 5.3** - CSS framework with native dark mode
+- **Bootstrap Icons 1.13** - 2,000+ icons
 - **Chart.js 4** - Charts and graphs
 - **Sass** - CSS preprocessor
 
@@ -45,14 +56,19 @@ npm run preview  # Preview production build
 
 ```
 src/
-├── index.html              # Dashboard
+├── index.html              # Main Dashboard
 ├── pages/                  # All other pages
+│   ├── dashboard-*.html    # Dashboard variants
+│   ├── tables.html         # Data tables
+│   ├── forms.html          # Form elements
+│   ├── charts.html         # Chart examples
+│   └── ...                 # Other pages
 ├── js/
 │   ├── main.js             # App initialization, theme, color switcher
 │   └── charts.js           # Chart.js configuration
 └── scss/
     ├── _variables.scss     # Bootstrap variable overrides
-    └── styles.scss         # Main styles + color switcher overrides
+    └── styles.scss         # Main styles
 ```
 
 ## Features
@@ -126,6 +142,35 @@ The sidebar uses Bootstrap nav classes. Active page is marked with `.active`:
 
 Node.js 20.19+ or 22.12+
 
+## More Templates from DashboardPack
+
+Looking for more options? Check out these templates from [DashboardPack](https://dashboardpack.com):
+
+### Free Templates
+
+- [ArchitectUI HTML Dashboard Free](https://dashboardpack.com/theme-details/architectui-html-dashboard-free) - Bootstrap 5 admin template
+- [ArchitectUI React Dashboard Free](https://dashboardpack.com/theme-details/architectui-react-dashboard-free) - React 19 admin dashboard
+- [ArchitectUI Vue Dashboard Free](https://dashboardpack.com/theme-details/architectui-dashboard-vue-free) - Vue.js admin template
+- [ArchitectUI Angular Dashboard Free](https://dashboardpack.com/theme-details/architectui-angular-7-dashboard-free) - Angular 20 admin dashboard
+
+### Premium Templates
+
+- [ArchitectUI Dashboard HTML PRO](https://dashboardpack.com/theme-details/architectui-dashboard-html-pro) - Full-featured Bootstrap admin
+- [TailPanel](https://dashboardpack.com/theme-details/tailpanel) - Tailwind CSS admin dashboard
+- [Finance SaaS Dashboard](https://dashboardpack.com/theme-details/finance-saas-dashboard) - Financial application template
+- [Analytic Dashboard](https://dashboardpack.com/theme-details/analytic-dashboard) - Data analytics template
+
+Browse all templates at [dashboardpack.com](https://dashboardpack.com)
+
 ## License
 
-MIT
+This project is licensed under the [MIT License](LICENSE).
+
+You are free to:
+
+- Use commercially - Use in any commercial project
+- Modify - Adapt, remix, and build upon the template
+- Distribute - Share copies with others
+- Use privately - Use for personal projects
+
+The only requirement is to include the original copyright notice in any copy of the software.
