@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Dashio is a Bootstrap 5 admin dashboard template built with Vite 7. It uses minimal custom CSS, leveraging Bootstrap utilities wherever possible.
+Dashio is a Bootstrap 5 admin dashboard template built with Vite 8. It uses minimal custom CSS, leveraging Bootstrap utilities wherever possible.
 
 ## Commands
 
